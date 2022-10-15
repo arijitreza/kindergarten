@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    #live-video {
+      height: 300px;
+      width: 70%;
+    }
+
+    @media screen and (max-width: 800px) {
+  #live-video {
+      height: 200px;
+      width: 70%;
+      }
+}
+
+
+ @media screen and (max-width: 600px) {
+  #live-video {
+      height: 150px;
+      width: 70%;
+      }
+}
+
+ @media screen and (max-width: 400px) {
+  #live-video {
+      height: 100px;
+      width: 90%;
+      }
+}
+    body{
+      background-image: url('stadiums.jpg');
+      background-repeat: no-repeat;
+      /*background-attachment: fixed;*/
+      background-size: contain;
+      width: 100%;
+  height: 800px;
+    }
+
+    
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.left {
+  background-color:;
+  padding: 20px;
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+
+#tv {
+  background-color: ;
+  padding: 20px;
+  float: left;
+  width: 60%; 
+  margin-top: 39px;
+}
+
+.right {
+  background-color: ;
+  padding: 20px;
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+  </style>
+<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+<!--  [ Note:  HLS code is "built-in" to video.js, as of version 4.x, so we should NOT include (possibly older?) HLS support separately ]  -->
+<!--   script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script  -->
+<!--   script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script -->
+</head>
+<body>
+
+<div class="left">
+</div>
+
+  <div id='tv'>
+
+    <center>
+
+<video id='live-video' class='video-js   vjs-default-skin    vjs-live  vjs-liveui'  controls  muted>
+</video>
+    
+    </center>
+  </div>
+
+<div class="right">
+</div>
+
+<script>
+// The extra 'liveui' arg below, and two extra classnames are not REQUIRED, but documentation-tutorial
+// refers to it as the newer/preferred API    See:  https://docs.videojs.com/tutorial-live.html
+   var  player = videojs('live-video', {liveui: true} );
+   player.src({ src:'http://ys-users.com:8080/live/christa/christa/377948.m3u8', type:'application/x-mpegurl'});
+   // Note: We begin with the stream playing, but the audio is initially 'muted' (see that attribute in video tag above )
+   //   See:   https://stackoverflow.com/questions/70719678/html5-video-autoplay-with-sound-unmuted
+   player.play();
+  
+  /*   Note: Their "playlist.m3u8" file in their URL contains these lines (this info helps us understand the goal of their HLS)
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:BANDWIDTH=2130537,RESOLUTION=1920x1080,CODECS="avc1.4d4028,mp4a.40.2",CLOSED-CAPTIONS=NONE
+alarabiapublish/alarabiya_1080p/chunks.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=1292733,RESOLUTION=1280x720,CODECS="avc1.4d401f,mp4a.40.2",CLOSED-CAPTIONS=NONE
+alarabiapublish/alarabiya_720p/chunks.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=557217,RESOLUTION=640x360,CODECS="avc1.77.30,mp4a.40.2",CLOSED-CAPTIONS=NONE
+alarabiapublish/alarabiya_360p/chunks.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=418515,RESOLUTION=426x240,CODECS="avc1.42c015,mp4a.40.2",CLOSED-CAPTIONS=NONE
+alarabiapublish/alarabiya_240p/chunks.m3u8
+*/
+</script>
+</body>
+</html
