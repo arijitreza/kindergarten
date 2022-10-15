@@ -1,117 +1,180 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@fifaxlive</title>
+
   <style type="text/css">
-    #live-video {
-      height: 300px;
-      width: 70%;
-    }
-
-    @media screen and (max-width: 800px) {
-  #live-video {
-      height: 200px;
-      width: 70%;
-      }
-}
-
-
- @media screen and (max-width: 600px) {
-  #live-video {
-      height: 150px;
-      width: 70%;
-      }
-}
-
- @media screen and (max-width: 400px) {
-  #live-video {
-      height: 100px;
-      width: 90%;
-      }
-}
-    body{
-      background-image: url('stadiums.jpg');
-      background-repeat: no-repeat;
-      /*background-attachment: fixed;*/
-      background-size: contain;
-      width: 100%;
-  height: 800px;
-    }
-
     
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+    *{
+      text-decoration: none;
+    }
+
+
+
+    #player{
+      text-align: center;
+    }
+    
+  button {
+    border: none;
+    color: #000000;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    /*height: 20px;
+    padding-bottom: 2px;
+    width: 75px;*/
+}
+  
+  .button {
+    border: none;
+    height:110px;
+    width:100px;
+    padding: 10px;
+    color: #f2132d;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin: 10px;
+    /*height: 20px;
+    padding-bottom: 2px;
+    width: 75px;*/
 }
 
-.left {
-  background-color:;
-  padding: 20px;
-  float: left;
-  width: 20%; /* The width is 20%, by default */
+html {
+  scroll-behavior: smooth;
+}
+  
+.gag {
+    background-color: #f2132d;
+    
+    color: white;
+    font-family: Arial Bold;
+    font-size: 1.7em;
+    text-decoration: none;
+    padding: 10px;
+  margin-top: 30px;
+}
+  
+#gaga {
+    background-color: #f2132d;
+    
+    color: white;
+    font-family: Arial Bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 30px;
+}
+  
+.booty {
+    color:  #f2132d;
+    font-family: Rockwell;
+   font-style: bold;
+    font-size: 30px;
 }
 
-#tv {
-  background-color: ;
-  padding: 20px;
-  float: left;
-  width: 60%; 
-  margin-top: 39px;
+#player{
+  margin: 0 auto;
+  width: 80%;
 }
 
-.right {
-  background-color: ;
-  padding: 20px;
-  float: left;
-  width: 20%; /* The width is 20%, by default */
+.buttu {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
 }
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
   </style>
-<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
-<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
-<!--  [ Note:  HLS code is "built-in" to video.js, as of version 4.x, so we should NOT include (possibly older?) HLS support separately ]  -->
-<!--   script src="https://unpkg.com/videojs-contrib-dash/dist/videojs-dash.js"></script  -->
-<!--   script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script -->
 </head>
 <body>
 
-<div class="left">
-</div>
 
-  <div id='tv'>
-
-    <center>
-
-<video id='live-video' class='video-js   vjs-default-skin    vjs-live  vjs-liveui'  controls  muted>
-</video>
-    
-    </center>
-  </div>
-
-<div class="right">
-</div>
-
-<script>
-// The extra 'liveui' arg below, and two extra classnames are not REQUIRED, but documentation-tutorial
-// refers to it as the newer/preferred API    See:  https://docs.videojs.com/tutorial-live.html
-   var  player = videojs('live-video', {liveui: true} );
-   player.src({ src:'https://tvs1.aynaott.com/StartSports2hd/tracks-v1a1/mono.m3u8', type:'application/x-mpegurl'});
-   // Note: We begin with the stream playing, but the audio is initially 'muted' (see that attribute in video tag above )
-   //   See:   https://stackoverflow.com/questions/70719678/html5-video-autoplay-with-sound-unmuted
-   player.play();
+<div id="player" style="text-align: center;">
+  <div id="download">
   
-  /*   Note: Their "playlist.m3u8" file in their URL contains these lines (this info helps us understand the goal of their HLS)
-#EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-STREAM-INF:BANDWIDTH=2130537,RESOLUTION=1920x1080,CODECS="avc1.4d4028,mp4a.40.2",CLOSED-CAPTIONS=NONE
-alarabiapublish/alarabiya_1080p/chunks.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=1292733,RESOLUTION=1280x720,CODECS="avc1.4d401f,mp4a.40.2",CLOSED-CAPTIONS=NONE
-alarabiapublish/alarabiya_720p/chunks.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=557217,RESOLUTION=640x360,CODECS="avc1.77.30,mp4a.40.2",CLOSED-CAPTIONS=NONE
-alarabiapublish/alarabiya_360p/chunks.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=418515,RESOLUTION=426x240,CODECS="avc1.42c015,mp4a.40.2",CLOSED-CAPTIONS=NONE
-alarabiapublish/alarabiya_240p/chunks.m3u8
-*/
-</script>
+  
+    <p style="border-color: rgb(242, 19, 45); border-style: solid; font-size: 2em; padding: 10px;">Computer users need to add this extension first</p>
+    <br />
+    <div style="text-align: center;"><a href="https://chrome.google.com/webstore/detail/native-hls-playback/emnphkkblegpebimobpbekeedfgemhof/related" id="gaga" target="_blank">Native HLS Playback For Chrome</a></div>
+    
+    <br><br>
+     
+    <div style="text-align: center;"><a href="https://www.google.com/url?q=https%3A%2F%2Faddons.mozilla.org%2Fen-US%2Ffirefox%2Faddon%2Fnative_hls_playback%2F&amp;sa=D&amp;sntz=1&amp;usg=AOvVaw2pf30NlUgskdqGWhKGMj2z" id="gaga" target="_blank">Native HLS Playback For Firefox</a></div>
+<br />
+<h2 style="font-size: 30px;">Play your Favourite Channel</h2>
+    
+    
+    <div style="display: flex; flex-wrap: wrap; margin: 0 auto; width: 80%;">
+      
+    
+    <div class="button"><a href="https://boldapula.000webhostapp.com/star-s-1.m3u8?" target="_blank"><img height="100px" src="https://upload.wikimedia.org/wikipedia/en/4/49/Star_Sports_India_logo1.png" width="100px" /></a></div>
+    
+    <div class="button"><a href="https://boldapula.000webhostapp.com/tri-nation-ptv.m3u8" target="_blank"><img height="100px" src="https://upload.wikimedia.org/wikipedia/en/e/e4/PTV_Sports.png" width="100px" /></a></div>
+            
+      <div class="button"><a href="https://boldapula.000webhostapp.com/fox.m3u8" target="_blank"><img height="100px" src="https://static.wikia.nocookie.net/logopedia/images/a/a4/FoxCricket-watermark.svg/revision/latest/scale-to-width-down/250?cb=20181024063309" width="100px" /></a></div>
+      
+      <div class="button"><a href="https://boldapula.000webhostapp.com/willow.m3u8" target="_blank"><img height="100px" src="https://www.timesofsports.com/wp-content/uploads/2022/09/willow-tv-logo.jpg" width="100px" /></a></div>
+      
+      </div>
+
+      
+    
+<br>
+    
+    <div id="gaga">👇👇👇 For more channel and m3u8 link join our telegram 👇👇👇</div>
+    
+    
+</div>  
+
+<br>
+<a class="buttu" href="https://t.me/fifaxlive" target="_blank">Telegram link</a>
+
+</center>
+
+
+
 </body>
-</html
+</html>
