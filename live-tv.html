@@ -83,7 +83,8 @@
 
     <center>
 
-    <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="100%" id="myframe" scrolling="no" src="https://live-streamfootball.com/wowhaha.php?m3u8=https%3A%2F%2Flive.wowaha.tv%2Flive%2F1%2Fplaylist.m3u8&id=3865&ver=2776516&parent=olesport.tv&is_vip=false" style="height: auto; overflow: hidden; width: 100%;" width="100%"></iframe>
+    <video id='live-video' class='video-js   vjs-default-skin    vjs-live  vjs-liveui'    width='640' height='360'  controls  muted>
+</video>
     </center>
   </div>
 
@@ -94,7 +95,7 @@
 // The extra 'liveui' arg below, and two extra classnames are not REQUIRED, but documentation-tutorial
 // refers to it as the newer/preferred API    See:  https://docs.videojs.com/tutorial-live.html
    var  player = videojs('live-video', {liveui: true} );
-   player.src({ src:'http://live.wolfiptv.tk:80/live/XsmK1tgJ9t/xD9eKuWm7Q/91285.m3u8', type:'application/x-mpegurl'});
+   player.src({ src:'http://175.41.46.16:8081/hls/4.m3u8', type:'application/x-mpegurl'});
    // Note: We begin with the stream playing, but the audio is initially 'muted' (see that attribute in video tag above )
    //   See:   https://stackoverflow.com/questions/70719678/html5-video-autoplay-with-sound-unmuted
    player.play();
