@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@fifaxlive</title>
-  <style type="text/css">
-    <link href="https://vjs.zencdn.net/8.6.0/video-js.css" rel="stylesheet" />
-
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+        <meta charset="UTF-8">
+        <title>Simple Free HLS Player Example</title>  
+        <!-- Include hls.js from a CDN -->
+        <script src="https://cdn.tutorialjinni.com/hls.js/1.2.1/hls.min.js"></script>
+        
+    
     
     body{
       background-image: url('stadiums.jpg');
@@ -103,36 +102,28 @@
 
     <center>
     
-<video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
-    <source src="MY_VIDEO.mp4" type="video/mp4" />
-    <source src="MY_VIDEO.webm" type="video/webm" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-  </video>
-
-  <script src="https://vjs.zencdn.net/8.6.0/video.min.js"></script>
-    
-      
+<!-- HTML5 Video Tag -->
+        <video id="video" 
+               width='480px' height='360px' controls autoplay
+               src="http://172.16.30.254/hls2/push-dex.m3u8">
+        </video>
+        <!-- Invocation Script -->
+        <script>
+            if (Hls.isSupported()) {
+              var video = document.getElementById('video');
+              var hls = new Hls();
+              hls.loadSource(video.src);
+              hls.attachMedia(video);
+            }else{
+                alert("Cannot stream HLS, use another video source");
+            }
+        </script>
     </center>
   </div>
 <br>
   <br>
     <center>
-<a class="buttu" href="https://t.me/fifaxlive" target="_blank">Telegram link</a>
+<!-- <a class="buttu" href="https://t.me/fifaxlive" target="_blank">Telegram link</a> -->
     </center>
 
 </body>
