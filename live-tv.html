@@ -5,7 +5,7 @@
         <title>Simple Free HLS Player Example</title>  
         <!-- Include hls.js from a CDN -->
         <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>
-        
+        <script var player = new Clappr.Player({source: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", parentId: "#player"});></script>
  
  <style>   
     body{
@@ -103,8 +103,7 @@
     <center>
             <div id="player"></div>    
 
-        <script var player = new Clappr.Player({source: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", parentId: "#player"});> </script>
-    </center>
+         </center>
   </div>
 <br>
   <br>
