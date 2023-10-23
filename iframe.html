@@ -1,7 +1,31 @@
 <html>
   <head>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
   </head>
+
   <body>
-    <iframe class="embed-responsive-item" src="https://boldapula.000webhostapp.com/embed/iBgcFCE" scrolling="no" allowfullscreen="true"></iframe>
+    <div id="player"></div>
+    <script>
+      var player = new Clappr.Player(
+        {
+          source: 'https://linear003-gb-dash1-prd-cf.cdn.skycdp.com/016a/Content/DASH_003_sd/Live/channel(skysportscricket)/manifest_sd.mpd',
+          plugins: [DashShakaPlayback],
+          shakaConfiguration: {
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+          shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+          },
+          parentId: '#player'
+        });
+    </script>
   </body>
 </html>
