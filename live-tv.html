@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title>Simple Free HLS Player Example</title>  
         <!-- Include hls.js from a CDN -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
- <style>   
+        <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>  
     body{
       background-image: url('stadiums.jpg');
       background-repeat: no-repeat;
@@ -23,12 +23,12 @@
 }
 
 
-#tv {
-  background-color: ;
-  padding: 20px;
-  float: left;
-  width: 100%; 
-  margin-top: 39px;
+.video {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
     
 .buttu {
@@ -91,26 +91,33 @@
     
   </div>
 
-  <div id='tv'>
 
-    <center>
-            <div id="player" style="height: 100%; width: 100%;"></div>
-  <script>
-    new Clappr.Player({
-  source: "http://test-otv2.ftpbd.net/streams/110/index.m3u8",
-  mute: false,
-  autoPlay: true,
-  parent: '#player-container',
-  width: '100%',
-  height: '100%',
-  hlsjsConfig: {
-    // here any hls.js configuration options
-  }
-})
-  </script>    
 
-         </center>
-  </div>
+    <div class="container">
+  <div class="video">
+     <div id="player"></div>
+    <script>
+      var player = new Clappr.Player(
+        {
+          source: 'https://linear003-gb-dash1-prd-cf.cdn.skycdp.com/016a/Content/DASH_003_sd/Live/channel(skysportscricket)/manifest_sd.mpd',
+          plugins: [DashShakaPlayback],
+          shakaConfiguration: {
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+          shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+          },
+          parentId: '#player'
+        });
+    </script>
+    </div>
+    
+ 
+</div>
+  
 <br>
   <br>
     <center>
