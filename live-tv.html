@@ -96,7 +96,17 @@
     <center>
             <div id="player" style="height: 100%; width: 100%;"></div>
   <script>
-    var player = new Clappr.Player({source: "http://test-otv2.ftpbd.net/streams/110/index.m3u8", parentId: "#player"});
+    new Clappr.Player({
+  source: "http://test-otv2.ftpbd.net/streams/110/index.m3u8",
+  mute: false,
+  autoPlay: true,
+  parent: '#player-container',
+  width: '100%',
+  height: '100%',
+  hlsjsConfig: {
+    // here any hls.js configuration options
+  }
+})
   </script>    
 
          </center>
