@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <title>Simple Free HLS Player Example</title>  
         <!-- Include hls.js from a CDN -->
-        <script src="https://cdn.tutorialjinni.com/hls.js/1.2.1/hls.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>
         
  
- </style>   
+ <style>   
     body{
       background-image: url('stadiums.jpg');
       background-repeat: no-repeat;
@@ -101,23 +101,12 @@
   <div id='tv'>
 
     <center>
-    
-<!-- HTML5 Video Tag -->
-        <video id="video" 
-               width='480px' height='360px' controls autoplay
-               src="http://172.16.30.254/hls2/push-dex.m3u8">
-        </video>
-        <!-- Invocation Script -->
-        <script>
-            if (Hls.isSupported()) {
-              var video = document.getElementById('video');
-              var hls = new Hls();
-              hls.loadSource(video.src);
-              hls.attachMedia(video);
-            }else{
-                alert("Cannot stream HLS, use another video source");
-            }
-        </script>
+     var player = new Clappr.Player(
+  {
+    source: 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8',
+    plugins: [HlsjsPlayback],
+  });
+            
     </center>
   </div>
 <br>
