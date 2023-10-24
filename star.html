@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+  	
+    <script src="clappr.min.js"></script>
+<style type="text/css">
+    
+    *{
+      text-decoration: none;
+      margin: 0px;
+      padding: 0px;
+    }
+    body{
+      background-color: #24292f;
+    }
+  </style>
+    
+  </head>
+
+   <body>
+  <div id="player" style="
+    /* height: auto; */
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;"></div>
+  <script>
+    var player = new Clappr.Player({source: "http://pro.ipcover.tv:8080/live/hansk/exchange/277513.m3u8", parentId: "#player"});
+  </script>
+</body>
+</html>
