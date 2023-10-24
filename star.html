@@ -1,11 +1,11 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-<style type="text/css">
-    
-    *{
+<head>
+  <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+  
+<title>PTV</title>
+ <style>
+*{
       text-decoration: none;
       margin: 0px;
       padding: 0px;
@@ -13,20 +13,22 @@
     body{
       background-color: #24292f;
     }
-  </style>
-    
-  </head>
 
-   <body>
-  <div id="player" style="
+   
+.video responsive {
     /* height: auto; */
     /* width: 100%; */
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
-    justify-content: center;"></div>
-  <script>
-    var player = new Clappr.Player({source: "http://pro.ipcover.tv:8080/live/hansk/exchange/277513.m3u8", parentId: "#player"});
-  </script>
+    justify-content: center;"
+}
+   </style>
+</head>
+<body>
+<center>
+                <iframe class="video responsive" marginheight="0" marginwidth="0" src="https://embedstreams.me/cricket-world-cup/bangladesh-vs-south-africa-stream-3" name="iframe_a" scrolling="no" allowfullscreen="yes" width="70%" height="360px" frameborder="0">Your Browser Do not Support Iframe</iframe>
+</center>
+
 </body>
 </html>
