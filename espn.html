@@ -25,8 +25,23 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: center;"></div>
-  <script>
-    var player = new Clappr.Player({source: "http://tv.trexiptv.com/play/live.php?mac=00:1a:79:4b:66:ae&stream=1104679&extension=m3u8", parentId: "#player"});
-  </script>
+ 
+    <script>
+      var player = new Clappr.Player(
+        {
+          source: 'http://tv.trexiptv.com/play/live.php?mac=00:1a:79:4b:66:ae&stream=1104679&extension=m3u8',
+          plugins: [DashShakaPlayback],
+          shakaConfiguration: {
+            preferredAudioLanguage: 'pt-BR',
+            streaming: {
+              rebufferingGoal: 15
+            }
+          },
+          shakaOnBeforeLoad: function(shaka_player) {
+            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
+          },
+          parentId: '#player'
+        });
+    </script>
 </body>
 </html>
