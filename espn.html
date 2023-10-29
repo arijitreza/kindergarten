@@ -2,40 +2,22 @@
 <!DOCTYPE html>  
   <html lang="en">  
   <head>  
-  <link rel="icon" href="https://i.postimg.cc/hvvtSwCV/Astro-Cricket.png" type="image/gif" sizes="16x16">  
+  <link rel="icon" href="" type="image/gif" sizes="16x16">  
   <meta charset="UTF-8">  
-  <title>@spprtcricket</title>  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>  
-  <style>   
-  body {   
-  margin: 0px   
-  }   
-
-  .jwplayer {   
-  position: absolute !important   
-  }   
-
-  .jwplayer.jw-flag-aspect-mode {   
-  min-height: 100%;   
-  max-height: 100%   
-  }   
-  jwplayer.setup({"logo": {  
-  "file": "",  
-  "link": "https://t.me/SPPRTCRICKET",}   
-  }  
-  </style>  
+  <title>ESPN</title>  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://hls-js.netlify.com/dist/hls.js"></script> 
+  <script src="mousetrap.min.js" charset="utf-8"></script>
   </head>  
-  <body>  
-  <div id="jwplayerDiv"></div>  
-  <script type="text/javascript">    
-  jwplayer("jwplayerDiv").setup({    
-  file: "http://tv.trexiptv.com/play/live.php?mac=00:1a:79:4b:66:ae&stream=1104679&extension=m3u8",   position: 'bottom',   
-  type: "hls",    
-             
-  });    
-                  </script>
+   
+                 <body>
+  <video id="video" style="width: 100%; height: 100%;" controls="">
+    <source src="http://tv.cloudcdn.me/live/00:1A:79:04:ED:80/SN_1697176355/102423.m3u8" type="application/x-mpegURL">
+  </video>
+  <script src="player.js"></script>
                   
 </body>
 
