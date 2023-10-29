@@ -1,48 +1,42 @@
-<html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>  
-<style type="text/css">
-    
-    *{
-      text-decoration: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    body{
-      background-color: #24292f;
-    }
-  </style>
-    
-  </head>
 
-   <body>
-  <div id="player" style="
-    /* height: auto; */
-    /* width: 100%; */
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;"></div>
- 
-    <script>
-      var player = new Clappr.Player(
-        {
-          source: 'http://tv.trexiptv.com/play/live.php?mac=00:1a:79:4b:66:ae&stream=1104679&extension=m3u8',
-          plugins: [DashShakaPlayback],
-          shakaConfiguration: {
-            preferredAudioLanguage: 'pt-BR',
-            streaming: {
-              rebufferingGoal: 15
-            }
-          },
-          shakaOnBeforeLoad: function(shaka_player) {
-            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
-          },
-          parentId: '#player'
-        });
-    </script>
+<!DOCTYPE html>  
+  <html lang="en">  
+  <head>  
+  <link rel="icon" href="https://i.postimg.cc/hvvtSwCV/Astro-Cricket.png" type="image/gif" sizes="16x16">  
+  <meta charset="UTF-8">  
+  <title>@spprtcricket</title>  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>  
+  <style>   
+  body {   
+  margin: 0px   
+  }   
+
+  .jwplayer {   
+  position: absolute !important   
+  }   
+
+  .jwplayer.jw-flag-aspect-mode {   
+  min-height: 100%;   
+  max-height: 100%   
+  }   
+  jwplayer.setup({"logo": {  
+  "file": "",  
+  "link": "https://t.me/SPPRTCRICKET",}   
+  }  
+  </style>  
+  </head>  
+  <body>  
+  <div id="jwplayerDiv"></div>  
+  <script type="text/javascript">    
+  jwplayer("jwplayerDiv").setup({    
+  file: "http://tv.trexiptv.com/play/live.php?mac=00:1a:79:4b:66:ae&stream=1104679&extension=m3u8",   position: 'bottom',   
+  type: "dash",    
+             
+  });    
+                  </script>
+                  
 </body>
-</html>
+
+  </html>
