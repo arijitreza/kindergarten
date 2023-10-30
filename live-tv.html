@@ -1,130 +1,47 @@
-<!DOCTYPE html>
-<html>
+<title>CatchyStream | F1</title>
 <head>
-        <meta charset="UTF-8">
-        <title>Simple Free HLS Player Example</title>  
-        <!-- Include hls.js from a CDN -->
-        <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>  
-   
-        <style>
-        body{
-      background-image: url('stadiums.jpg');
-      background-repeat: no-repeat;
-      /*background-attachment: fixed;*/
-      background-size: cover;
-      width: 100%;
-      height: 800px;
-    }
-
-    
-* {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-}
 
 
-.video {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-}
-    
-.buttu {
-  background-color: #004A7F;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: none;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Arial;
-  font-size: 20px;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-animation: glowing 1500ms infinite;
-  -moz-animation: glowing 1500ms infinite;
-  -o-animation: glowing 1500ms infinite;
-  animation: glowing 1500ms infinite;
-}
-@-webkit-keyframes glowing {
-  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-}
 
-@-moz-keyframes glowing {
-  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-}
-
-@-o-keyframes glowing {
-  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
-
-@keyframes glowing {
-  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-}
-
-
-  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
 </head>
-<body>
-<br>
-<h1 style="text-align: center; color: white; font-size: 40px;">Fifaxlive</h1>
+<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
+  <div id="player"></div>
+<div id="player-wrapper"></div>
+  <script>
 
-  <br>
+var playerElement = document.getElementById("player");
+var player = new Clappr.Player({
+      mimeType: "application/x-mpegURL",
+      mediacontrol: {
+      seekbar: "#fffff",
+      buttons: "#fffff"
+      },
+ height: "100%",
+ width: "100%",
+ autoPlay: true,
+  plugins: [LevelSelector],
 
-  <div style="margin: 0 auto; width: 80%;">
+ hlsjsConfig: {
+        p2pConfig: {
+            wsSignalerAddr: 'wss://free.freesignal.net',
 
-    <marquee style="font-size: 30px; color: white;">
-      Join our telegram channel to get BDIX connected links for free !!!
-    </marquee>
-    
-    
-  </div>
+        },
+        xhrSetup: function(xhr, url) {
+                xhr.withCredentials = false;
+        }
 
+ }
+});
+player.attachTo(playerElement);
+player.load({source: "https://choopa.freesportstime.com/live/streamfreecric.m3u8", mimeType:'application/x-mpegURL'});
+player.play();
+</script>
 
-
-    <div class="container">
-  <div class="video">
-     <div id="player"></div>
-    <script>
-      var player = new Clappr.Player(
-        {
-          source: 'https://linear003-gb-dash1-prd-cf.cdn.skycdp.com/016a/Content/DASH_003_sd/Live/channel(skysportscricket)/manifest_sd.mpd',
-          plugins: [DashShakaPlayback],
-          shakaConfiguration: {
-            preferredAudioLanguage: 'pt-BR',
-            streaming: {
-              rebufferingGoal: 15
-            }
-          },
-          shakaOnBeforeLoad: function(shaka_player) {
-            // shaka_player.getNetworkingEngine().registerRequestFilter() ...
-          },
-          parentId: '#player'
-        });
-    </script>
-    </div>
-    
- 
+<script>
 </div>
-  
-<br>
-  <br>
-    <center>
-<!-- <a class="buttu" href="https://t.me/fifaxlive" target="_blank">Telegram link</a> -->
-    </center>
+
 
 </body>
-</html>
