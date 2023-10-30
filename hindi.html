@@ -1,32 +1,47 @@
-<html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-<style type="text/css">
-    
-    *{
-      text-decoration: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    body{
-      background-color: #24292f;
-    }
-  </style>
-    
-  </head>
+<title>CatchyStream | F1</title>
+<head>
 
-   <body>
-  <div id="player" style="
-    /* height: auto; */
-    /* width: 100%; */
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;"></div>
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+</head>
+<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
+  <div id="player"></div>
+<div id="player-wrapper"></div>
   <script>
-    var player = new Clappr.Player({source: "https://extra-stream.live/SFVSBD/master.m3u8?id=master.m3u8", parentId: "#player"});
-  </script>
+
+var playerElement = document.getElementById("player");
+var player = new Clappr.Player({
+      mimeType: "application/x-mpegURL",
+      mediacontrol: {
+      seekbar: "#fffff",
+      buttons: "#fffff"
+      },
+ height: "100%",
+ width: "100%",
+ autoPlay: true,
+  plugins: [LevelSelector],
+
+ hlsjsConfig: {
+        p2pConfig: {
+            wsSignalerAddr: 'wss://free.freesignal.net',
+
+        },
+        xhrSetup: function(xhr, url) {
+                xhr.withCredentials = false;
+        }
+
+ }
+});
+player.attachTo(playerElement);
+player.load({source: "https://hls.streambtw.com/live/stream_e.m3u8", mimeType:'application/x-mpegURL'});
+player.play();
+</script>
+
+<script>
+</div>
+
+
 </body>
-</html>
