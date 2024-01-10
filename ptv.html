@@ -1,34 +1,44 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-  <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  
-<title>PTV</title>
- <style>
-*{
-      text-decoration: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    body{
-      background-color: #24292f;
-    }
-
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <!--    <script type="text/javascript" src="https://ssl.p.jwpcdn.com/player/v/8.26.1/jwpsrv.js"></script>-->
+   <!--    <script type="text/javascript" src="https://ssl.p.jwpcdn.com/player/v/8.26.1/vast.js"></script>-->
+   <script type="text/javascript" src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
    
-.video responsive {
-    /* height: auto; */
-    /* width: 100%; */
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;"
-}
-   </style>
 </head>
-<body>
-<center>
-                <iframe class="video responsive" marginheight="0" marginwidth="0" src="https://www.techpriyo.com/api/ptv.php" name="iframe_a" scrolling="no" allowfullscreen="yes" width="70%" height="360px" frameborder="0">Your Browser Do not Support Iframe</iframe>
-</center>
 
+<body style="margin: 2px;padding: 0">
+   <div id="player"></div>
+   <script type="text/javascript">
+      jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
+      var player = jwplayer("player");
+      var object = {
+         controls: true,
+         volume: 100,
+         stretching: "uniform",
+         width: "100%",
+         height: "100%",
+         file: "/streamfkm/74960.txt",
+         type: "hls",
+         preload: "auto",
+         autostart: true,
+         //logo: {
+         //	file: "https://xem17.cucai1.org/wp-content/uploads/2023/04/player-logo.jpg",
+         //	link: "https://www.fb88id.com/vi-VN/Account/Register?affiliateId=7353",
+         //	hide: "false",
+         //	position: "top-right",
+         //},
+      };
+      player.setup(object);
+      player.on('ready', function() {
+         $('#loading').hide(300);
+      });
+
+   </script>
 </body>
+
 </html>
