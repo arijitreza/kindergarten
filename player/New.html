@@ -1,0 +1,47 @@
+<title>CatchyStream</title>
+<head>
+
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+</head>
+<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
+  <div id="player"></div>
+<div id="player-wrapper"></div>
+  <script>
+
+var playerElement = document.getElementById("player");
+var player = new Clappr.Player({
+      mimeType: "application/x-mpegURL",
+      mediacontrol: {
+      seekbar: "#fffff",
+      buttons: "#fffff"
+      },
+ height: "100%",
+ width: "100%",
+ autoPlay: true,
+  plugins: [LevelSelector],
+
+ hlsjsConfig: {
+        p2pConfig: {
+            wsSignalerAddr: 'wss://free.freesignal.net',
+
+        },
+        xhrSetup: function(xhr, url) {
+                xhr.withCredentials = false;
+        }
+
+ }
+});
+player.attachTo(playerElement);
+player.load({source: "http://46.229.253.27:80/live/EggTMxRtdA/aNGsYr0Gn2/18452.m3u8?play_token=cduID7vrXw&token=ShJcU0BbQQNHAFdbAwVUWw8DAAYEBVUFBgYHBFBcUQcIUwMBAAMBXFIbGBpEF0dcWF1vWQIXXlAJVlcFSUZGQVRCa1tXEVkbUQ8MCQRUFxUbRFldAxdeUAZTUgJdVQEDARwWQlpXQQNHCwAJD1MCChscElUeQQETXwMOaAEBRVtSVRYIXUYPVUkbW1ZoB1BUWF5UElwXVEMdQAtEFUYJXERcWB4RUQpNF1hAXRVZFwAKAwMSShcHDkQMFkUcRgkQc3QWHhFWG00AV0dRWA0XAxtEQxJKFw0SbhAHRBEWVlNcVUYQCRFTG0kbWVlPPFZWV15VUxJcCw9CQFgVVEYfEFxfWltHXBFmFVBQGg1BDQ8IBwkEREg=", mimeType:'application/x-mpegURL'});
+player.play();
+</script>
+
+<script>
+</div>
+
+
+</body>
