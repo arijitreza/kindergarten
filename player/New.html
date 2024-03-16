@@ -1,47 +1,53 @@
-<title>CatchyStream</title>
+
+<!DOCTYPE html>
+<html>
 <head>
-
-
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+<title>Youtube Video Player - APICodes</title>
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript" src="https://ssl.p.jwpcdn.com/player/v/8.6.2/jwplayer.js"></script>
+<script type="text/javascript">jwplayer.key="cLGMn8T20tGvW+0eXPhq4NNmLB57TrscPjd1IyJF84o=";</script>
+<style type="text/css" media="screen">html,body{padding:0;margin:0;height:60%}#apicodes-player{width:100%!important;height:100%!important;overflow:hidden;background-color:#000}</style>
 </head>
-<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
-  <div id="player"></div>
-<div id="player-wrapper"></div>
-  <script>
+<body>
+<div id="apicodes-player"></div><script type="text/javascript">var player=jwplayer("apicodes-player");
+player.setup(
+{sources:[
+{"type":"video/mp4",
+"label":"720p",
+"file":"http://46.229.253.27:80/live/EggTMxRtdA/aNGsYr0Gn2/18452.m3u8?play_token=cduID7vrXw&token=ShJcU0BbQQNHAFdbAwVUWw8DAAYEBVUFBgYHBFBcUQcIUwMBAAMBXFIbGBpEF0dcWF1vWQIXXlAJVlcFSUZGQVRCa1tXEVkbUQ8MCQRUFxUbRFldAxdeUAZTUgJdVQEDARwWQlpXQQNHCwAJD1MCChscElUeQQETXwMOaAEBRVtSVRYIXUYPVUkbW1ZoB1BUWF5UElwXVEMdQAtEFUYJXERcWB4RUQpNF1hAXRVZFwAKAwMSShcHDkQMFkUcRgkQc3QWHhFWG00AV0dRWA0XAxtEQxJKFw0SbhAHRBEWVlNcVUYQCRFTG0kbWVlPPFZWV15VUxJcCw9CQFgVVEYfEFxfWltHXBFmFVBQGg1BDQ8IBwkEREg=",
+"poster":"https://bit.ly/truetvp/"}
+],
+aspectratio:"1:1",
+startparam:"start",
+primary:"html5",
+autostart:0,
+live:"true",
+poster:"https://bit.ly/wasitvp/",
+preload:"auto",
 
-var playerElement = document.getElementById("player");
-var player = new Clappr.Player({
-      mimeType: "application/x-mpegURL",
-      mediacontrol: {
-      seekbar: "#fffff",
-      buttons: "#fffff"
-      },
- height: "100%",
- width: "100%",
- autoPlay: true,
-  plugins: [LevelSelector],
+captions:{
+color:"#f3f368",
 
- hlsjsConfig: {
-        p2pConfig: {
-            wsSignalerAddr: 'wss://free.freesignal.net',
-
-        },
-        xhrSetup: function(xhr, url) {
-                xhr.withCredentials = false;
-        }
-
- }
-});
-player.attachTo(playerElement);
-player.load({source: "http://46.229.253.27:80/live/EggTMxRtdA/aNGsYr0Gn2/18452.m3u8?play_token=cduID7vrXw&token=ShJcU0BbQQNHAFdbAwVUWw8DAAYEBVUFBgYHBFBcUQcIUwMBAAMBXFIbGBpEF0dcWF1vWQIXXlAJVlcFSUZGQVRCa1tXEVkbUQ8MCQRUFxUbRFldAxdeUAZTUgJdVQEDARwWQlpXQQNHCwAJD1MCChscElUeQQETXwMOaAEBRVtSVRYIXUYPVUkbW1ZoB1BUWF5UElwXVEMdQAtEFUYJXERcWB4RUQpNF1hAXRVZFwAKAwMSShcHDkQMFkUcRgkQc3QWHhFWG00AV0dRWA0XAxtEQxJKFw0SbhAHRBEWVlNcVUYQCRFTG0kbWVlPPFZWV15VUxJcCw9CQFgVVEYfEFxfWltHXBFmFVBQGg1BDQ8IBwkEREg=", mimeType:'application/x-mpegURL'});
-player.play();
+fontSize:16,
+backgroundOpacity:0,
+fontfamily:"Helvetica",
+edgeStyle:"raised"},
+tracks:[
+{file:"",
+label:"English",
+kind:"captions",
+"default":true}
+]
+}
+);
+player.on("setupError",
+function(){
+swal("Server Error!","Please contact us to fix it asap. Thank you!","error")});
+player.on("error",function(){
+swal("Server Error!","Please contact us to fix it asap. Thank you!","error")});
 </script>
-
-<script>
-</div>
-
-
 </body>
+</html>
