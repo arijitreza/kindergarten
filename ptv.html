@@ -1,62 +1,55 @@
 <html>
+  <head>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+  </head>
 
-<head>
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <!--    <script type="text/javascript" src="https://ssl.p.jwpcdn.com/player/v/8.26.1/jwpsrv.js"></script>-->
-   <!--    <script type="text/javascript" src="https://ssl.p.jwpcdn.com/player/v/8.26.1/vast.js"></script>-->
-   <script type="text/javascript" src="https://cdn.jwplayer.com/libraries/IDzF9Zmk.js"></script>
-   <script type="text/javascript">
-      document.addEventListener('contextmenu', event => event.preventDefault());
-      document.addEventListener("keydown", function(event) {
-         if (event.keyCode === 123) {
-            window.location.replace("https://google.com");
-         }
-      }) ! function() {
-         ! function e() {
-            try {
-               ! function t(e) {
-                  (1 !== ("" + e / e).length || e % 20 === 0) && function() {}.constructor("debugger")(), t(++e)
-               }(0)
-            } catch (n) {
-               setTimeout(e, 1e3)
-            }
-         }()
-      }();
-
-   </script>
-</head>
-
-<body style="margin: 2px;padding: 0">
-   <div id="player"></div>
-   <script type="text/javascript">
-      jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
-      var player = jwplayer("player");
-      var object = {
-         controls: true,
-         volume: 100,
-         stretching: "uniform",
-         width: "100%",
-         height: "440px",
-         file: "https://hoibe.site/streamfkm/74960.txt",
-         type: "hls",
-         preload: "auto",
-         autostart: true,
-         //logo: {
-         //	file: "https://xem17.cucai1.org/wp-content/uploads/2023/04/player-logo.jpg",
-         //	link: "https://www.fb88id.com/vi-VN/Account/Register?affiliateId=7353",
-         //	hide: "false",
-         //	position: "top-right",
-         //},
-      };
-      player.setup(object);
-      player.on('ready', function() {
-         $('#loading').hide(300);
-      });
-
-   </script>
-</body>
-
+  <body style="margin: 0; padding: 0;">
+    <div id="player"></div>
+    <script>
+            var _0x3d58ff = {
+  'appId': "9DFB77C0",
+  'contentType': "video/mp4"
+};
+var _0x5eb77f = {};
+function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
+  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
+}
+_0x5eb77f["9ecad6c4413f8bdc54712ce6c072a2cf"] = "442df559c369bdada8ba3abe97811575";
+var _0x567207 = {
+  'clearKeys': _0x5eb77f
+};
+var _0x385915 = {
+  'drm': _0x567207
+};
+function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
+  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
+}
+var player = new Clappr.Player({
+  'source': "https://live.shoq.com.pk/live/eds/PTV_Sports/DASH/PTV_Sports.mpd",
+  'mimeType': 'application/dash+xml',
+  'height': '100%',
+  'width': "100%",
+  'autoPlay': false,
+  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
+  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
+  'events': {
+    'onReady': function () {
+      var _0x250be4 = this.getPlugin("click_to_pause");
+      if (_0x250be4) {
+        _0x250be4.disable();
+      }
+    }
+  },
+  'chromecast': _0x3d58ff,
+  'shakaConfiguration': _0x385915,
+  'shakaOnBeforeLoad': function (_0x325d80) {},
+  'parentId': "#player"
+});
+  </script>
+  </body>
 </html>
