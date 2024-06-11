@@ -2,4 +2,4 @@
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:25
 #EXTINF:1000.0,
-http://176.119.29.52/live.ts?channelId=281&uid=13086&deviceMac=00:1A:79:00:02:27
+http://tv.cloudcdn.me:80/live.ts?channelId=116&uid=4620&deviceMac=00:1A:79:E0:7E:D4
