@@ -1,55 +1,68 @@
-<html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-  </head>
+<html lang="es">
 
-  <body>
-    <div id="player"></div>
-    <script>
-            var _0x3d58ff = {
-  'appId': "9DFB77C0",
-  'contentType': "video/mp4"
-};
-var _0x5eb77f = {};
-function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
-  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
-}
-_0x5eb77f["3fd52d1e9ba4b180aec12c9295b62c0f"] = "bb274e33da0c709e62c55d0cba911889";
-var _0x567207 = {
-  'clearKeys': _0x5eb77f
-};
-var _0x385915 = {
-  'drm': _0x567207
-};
-function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
-  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
-}
-var player = new Clappr.Player({
-  'source': "https://ais-s.ais-vidnt.com/ais/play/origin/live/eds/S0001/DASH/S0001.mpd",
-  'mimeType': 'application/dash+xml',
-  'height': '100%',
-  'width': "100%",
-  'autoPlay': false,
-  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
-  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-  'events': {
-    'onReady': function () {
-      var _0x250be4 = this.getPlugin("click_to_pause");
-      if (_0x250be4) {
-        _0x250be4.disable();
+<head>
+
+   <meta name="robots" content="noindex" />
+   <script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
+   <script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
+   <script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
+   <script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
+   <script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
+   <script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
+   <script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
+   <script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   <style>
+      .player-poster[data-poster] {
+         background-size: cover;
       }
-    }
-  },
-  'chromecast': _0x3d58ff,
-  'shakaConfiguration': _0x385915,
-  'shakaOnBeforeLoad': function (_0x325d80) {},
-  'parentId': "#player"
-});
-  </script>
-  </body>
-</html>
+
+      body {
+         margin: 0;
+         padding: 0;
+      }
+
+   </style>
+</head>
+<div id="player"></div>
+<script>
+   var player = new Clappr.Player({
+      source: 'https://api-proxad.dc2.oqee.net/playlist/v1/live/966/1/live.mpd',
+      mimeType: 'application/dash+xml',
+      height: '100%',
+      width: '100%',
+      plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl],
+      events: {
+         onReady: function() {
+            var plugin = this.getPlugin('click_to_pause');
+            plugin && plugin.disable();
+         },
+      },
+      chromecast: {
+         appId: '9DFB77C0',
+         contentType: 'video/mp4',
+      },
+      shakaConfiguration: {
+         drm: {
+            clearKeys: {
+               '3cf686dc4246f19bc4419c54da0f90bc': 'b40f599266c8a262ccf4a384dadce08a',
+               '9d8b1b819cfdcff845625b86cc4968f3': '480b03fe4476bc187c6a9d43ba85b9db',
+               '6ca2f2c822444ff76d9570741dec7b2b': '9fc3d71ab30e8d33f09ee29e5e453608'
+            }
+         },
+         preferredAudioLanguage: 'pt-BR',
+      },
+      shakaOnBeforeLoad: function(shaka_player) {},
+      parentId: '#player'
+   });
+
+</script>
+
+<style>
+   img[alt="www.000webhost.com"] {
+      display: none;
+   }
+
+</style>
+<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
