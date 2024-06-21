@@ -40,6 +40,12 @@
 
       var ConfiguracionCanales = {
 
+
+
+
+         https://kicc.rkbdmoza.xyz/live.m3u8?id=9289cbf9957f&e=.m3u8
+
+            
          "USANETWORK": {
             url: "//fsly.stream.peacocktv.com/Content/CMAF_OL1-CTR-4s/Live/channel(usa-east)/master.mpd",
             k1: "882c9f5613b43b47adc70aa968a308ce",
