@@ -1,0 +1,47 @@
+<title>CatchyStream</title>
+<head>
+
+
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+</head>
+<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
+  <div id="player"></div>
+<div id="player-wrapper"></div>
+  <script>
+
+var playerElement = document.getElementById("player");
+var player = new Clappr.Player({
+      mimeType: "application/x-mpegURL",
+      mediacontrol: {
+      seekbar: "#fffff",
+      buttons: "#fffff"
+      },
+ height: "100%",
+ width: "100%",
+ autoPlay: true,
+  plugins: [LevelSelector],
+
+ hlsjsConfig: {
+        p2pConfig: {
+            wsSignalerAddr: 'wss://free.freesignal.net',
+
+        },
+        xhrSetup: function(xhr, url) {
+                xhr.withCredentials = false;
+        }
+
+ }
+});
+player.attachTo(playerElement);
+player.load({source: "https://hdstreamz.vip/tsportshd/stream.php?stream=https://live-cdn.tsports.com/live-01/master_1080.m3u8", mimeType:'application/x-mpegURL'});
+player.play();
+</script>
+
+<script>
+</div>
+
+
+</body>
