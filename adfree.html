@@ -10,46 +10,62 @@
 
   <body style="margin: 0; padding: 0;">
     <div id="player"></div>
-    <script>
-            var _0x3d58ff = {
-  'appId': "9DFB77C0",
-  'contentType': "video/mp4"
-};
-var _0x5eb77f = {};
-function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
-  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
-}
-_0x5eb77f["ae7076b647133606b704d33e4cef5134"] = "810251515584cf71216d9a2d1ebf04bb";
-var _0x567207 = {
-  'clearKeys': _0x5eb77f
-};
-var _0x385915 = {
-  'drm': _0x567207
-};
-function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
-  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
-}
-var player = new Clappr.Player({
-  'source': "https://live-d-01-icc-we.akamaized.net/variant/v1blackout/ch-hd-01-d/DASH_DASH/Live/channel(ch-hd-01)/hdnts=st=1718118537~exp=1718118577~acl=%2fvariant%2fv1blackout%2fch-hd-01-d%2f*~hmac=3cf2aecfbca1fe005d0ea4ade32d64411529025ae8b04eecfd98136201780fcd/manifest.mpd?vcfilter=dd72eeb8-d880-43a0-891e-e66f80def919",
-  'mimeType': 'application/dash+xml',
-  'height': '100%',
-  'width': "100%",
-  'autoPlay': false,
-  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
-  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-  'events': {
-    'onReady': function () {
-      var _0x250be4 = this.getPlugin("click_to_pause");
-      if (_0x250be4) {
-        _0x250be4.disable();
-      }
+   <script>
+
+      // Acquired kty k and kid
+
+      var kTyK = {
+
+        kty: "oct",
+
+        alg: "A128KW",
+
+        kid: "tfK2iaoQEqp3OSP+MM9GFX",
+
+        k: "cTXYIYJMd3CgnBmcOf8Hah"
+
+      };
+
+      // Initialize the player and set up the manifest
+
+      var manifestUri = 'https://license.premiumbynd.workers.dev/license.php?channel=officialstreaming';
+
+      var video = document.getElementById('video');
+
+      var player = new shaka.Player(video);
+
+      player.configure({
+
+        drm: {
+      clearKeys: {
+        [kTyk.kid]: kTyK.k
+      },
     }
-  },
-  'chromecast': _0x3d58ff,
-  'shakaConfiguration': _0x385915,
-  'shakaOnBeforeLoad': function (_0x325d80) {},
-  'parentId': "#player"
-});
-  </script>
+
+      });
+
+      // Listen for errors and log them.
+
+      player.addEventListener('error', function(event) {
+
+        console.error('Error code', event.detail.code, 'object', event.detail);
+
+      });
+
+      // Try to load a manifest.
+
+      player.load(manifestUri).then(function() {
+
+        console.log('The video has now been loaded!');
+
+      }).catch(onError);    
+
+      function onError(error) {
+
+        console.error('Error code', error.code, 'object', error);
+
+      }
+
+    </script>
   </body>
 </html>
