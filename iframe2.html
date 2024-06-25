@@ -1,55 +1,67 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-  </head>
+<head>
+    <title>STARPLAY LIVE SPORTS</title>
 
-  <body>
-    <div id="player"></div>
-    <script>
-            var _0x3d58ff = {
-  'appId': "9DFB77C0",
-  'contentType': "video/mp4"
-};
-var _0x5eb77f = {};
-function _0x2ece59(_0x59fff6, _0x4880bf, _0x15a997, _0x5392c8, _0x5a0e22) {
-  return _0x5bee(_0x5a0e22 - 0x2f7, _0x59fff6);
-}
-_0x5eb77f["ae7076b647133606b704d33e4cef5134"] = "810251515584cf71216d9a2d1ebf04bb";
-var _0x567207 = {
-  'clearKeys': _0x5eb77f
-};
-var _0x385915 = {
-  'drm': _0x567207
-};
-function _0x44878f(_0x23eba6, _0x5a5667, _0x3cbf03, _0xb76feb, _0x437a10) {
-  return _0x5bee(_0x23eba6 - 0x210, _0xb76feb);
-}
-var player = new Clappr.Player({
-  'source': "https://icc2.vercel.app/api/1.mpd",
-  'mimeType': 'application/dash+xml',
-  'height': '100%',
-  'width': "100%",
-  'autoPlay': false,
-  'plugins': [LevelSelector, DashShakaPlayback, Clappr.MediaControl],
-  mediacontrol: { seekbar: "#ff0000", buttons: "#eee" },
-  'events': {
-    'onReady': function () {
-      var _0x250be4 = this.getPlugin("click_to_pause");
-      if (_0x250be4) {
-        _0x250be4.disable();
-      }
+    <meta name="robots" content ="noindex,nofollow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .jwplayer {
+            position: absolute !important;
+        }
+
+        .jwplayer.jw-flag-aspect-mode {
+            min-height: 100%;
+            max-height: 100%;
+        }
+
+        .jw-logo-container {
+            position: absolute;
+            top: 2%;
+            right: 55%;
+        }
+    </style>
+</head>
+
+<body>
+<script disable-devtool-auto='true' src='https://cdn.jsdelivr.net/npm/disable-devtool' clear-log='true'
+        disable-select='true' disable-copy='true' disable-cut='true' disable-paste='true'>
+</script>
+<script src="https://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+<script>
+    jwplayer.defaults = jwDefaults;
+</script>
+
+<div id="myPlayer" class="jwplayer jw-reset jw-state-idle" style="width:100%;height:100%;"></div>
+
+<div id="jwplayerDiv"></div>
+<script type="text/JavaScript" defer>
+if (window.self !== window.top) {
+    jwplayer("jwplayerDiv").setup({
+        autostart: true,
+        volume: "100",
+        mute: false,
+        pipIcon: "disabled",
+        title: "STARPLAY",
+        logo: {
+            file: "https://imgtr.ee/images/2023/12/26/1ce485d929f0c4b3bdef1810f915a21d.png",
+            hide: false,
+            position: "top-right",
+            },
+        file: "https://icc2.vercel.app/api/1.mpd",
+        drm: {
+            clearkey: {"keys":[{"kty":"oct","kid":"rnB2tkcTNga3BNM-TO9RNA","k":"gQJRUVWEz3EhbZotHr8Euw"}],"type":"temporary"}
+        }
+    });
+    } else {
+        window.location.href = 'https://tvs1.vercel.app';
     }
-  },
-  'chromecast': _0x3d58ff,
-  'shakaConfiguration': _0x385915,
-  'shakaOnBeforeLoad': function (_0x325d80) {},
-  'parentId': "#player"
-});
-  </script>
-  </body>
+</script>
+</body>
 </html>
