@@ -1,71 +1,53 @@
-<html>
-  <head>
-    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-  	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/clappr@latest/dist/clappr.min.js"></script>
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-  </head>
+<html lang="es">
+<head>
 
-  <body style="margin: 0; padding: 0;">
-    <div id="player"></div>
-   <script>
+<meta name="robots" content="noindex" />
+<script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
+<script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
+<script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+<style> 
 
-      // Acquired kty k and kid
+.player-poster[data-poster] {
+  background-size: cover;
+}
+body{
+  margin:0;
+  padding:0;
+}
 
-      var kTyK = {
-
-        kty: "oct",
-
-        alg: "A128KW",
-
-        kid: "tfK2iaoQEqp3OSP+MM9GFX",
-
-        k: "cTXYIYJMd3CgnBmcOf8Hah"
-
-      };
-
-      // Initialize the player and set up the manifest
-
-      var manifestUri = 'https://license.premiumbynd.workers.dev/license.php?channel=officialstreaming';
-
-      var video = document.getElementById('video');
-
-      var player = new shaka.Player(video);
-
-      player.configure({
-
-        drm: {
-      clearKeys: {
-        [kTyk.kid]: kTyK.k
-      },
-    }
-
-      });
-
-      // Listen for errors and log them.
-
-      player.addEventListener('error', function(event) {
-
-        console.error('Error code', event.detail.code, 'object', event.detail);
-
-      });
-
-      // Try to load a manifest.
-
-      player.load(manifestUri).then(function() {
-
-        console.log('The video has now been loaded!');
-
-      }).catch(onError);    
-
-      function onError(error) {
-
-        console.error('Error code', error.code, 'object', error);
-
-      }
-
-    </script>
-  </body>
-</html>
+</style>
+</head>
+<div id="player"></div>
+<script>
+var player = new Clappr.Player({
+        source: 'https://tvup-ccs-live.akamaized.net/directvsportpan/directvsportpan.mpd',
+        mimeType: 'application/dash+xml',
+        height: '100%',
+        width: '100%',
+        plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl],
+        events: {onReady: function() {var plugin = this.getPlugin('click_to_pause'); plugin && plugin.disable();},},
+        chromecast: {
+            appId: '9DFB77C0',
+            contentType: 'video/mp4',
+        },
+        shakaConfiguration: {
+            drm: {
+            clearKeys: {
+                    '808acb2348285e8594821c779eedd72c': '2fa72883df285a5b4f77eed51ce1a716',
+              '4a5ad1c6b8a4561da424fe266fe19118':'34fa2f40a7da17e85c403254caa30161',
+              'e13be1b367af5786845e3b6b6af30d55':'7d80b02321eb842dc5f6bc88a6244505'
+                }
+            },
+            preferredAudioLanguage: 'pt-BR',
+        },
+        shakaOnBeforeLoad: function (shaka_player) {},
+        parentId: '#player'
+    });
+</script>
