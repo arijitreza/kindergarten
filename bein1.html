@@ -1,68 +1,47 @@
-<html lang="es">
-
+<title>REZAStream</title>
 <head>
 
-   <meta name="robots" content="noindex" />
-   <script src="//cdn.jsdelivr.net/npm/@clappr/player@0.4.0/dist/clappr.min.js"></script>
-   <script src="//cdn.jsdelivr.net/npm/mux.js@5.6.7/dist/mux.min.js"></script>
-   <script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
-   <script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
-   <script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
-   <script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
-   <script src="//cdn.jsdelivr.net/npm/shaka-player@2.5.10/dist/shaka-player.compiled.min.js"></script>
-   <script src="//cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.external.min.js"></script>
-   <script src="//cdn.jsdelivr.net/npm/cdnbye-shaka@latest"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-   <style>
-      .player-poster[data-poster] {
-         background-size: cover;
-      }
 
-      body {
-         margin: 0;
-         padding: 0;
-      }
 
-   </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
 </head>
-<div id="player"></div>
-<script>
-   var player = new Clappr.Player({
-      source: 'https://sportina.app/osat-max1/tracks-v1a1/mono.m3u8',
-      mimeType: 'application/dash+xml',
-      height: '100%',
-      width: '100%',
-      plugins: [LevelSelector, DashShakaPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, Clappr.MediaControl],
-      events: {
-         onReady: function() {
-            var plugin = this.getPlugin('click_to_pause');
-            plugin && plugin.disable();
-         },
-      },
-      chromecast: {
-         appId: '9DFB77C0',
-         contentType: 'video/mp4',
-      },
-      shakaConfiguration: {
-         drm: {
-            clearKeys: {
-               '3cf686dc4246f19bc4419c54da0f90bc': 'b40f599266c8a262ccf4a384dadce08a',
-               '9d8b1b819cfdcff845625b86cc4968f3': '480b03fe4476bc187c6a9d43ba85b9db',
-               '6ca2f2c822444ff76d9570741dec7b2b': '9fc3d71ab30e8d33f09ee29e5e453608'
-            }
-         },
-         preferredAudioLanguage: 'pt-BR',
-      },
-      shakaOnBeforeLoad: function(shaka_player) {},
-      parentId: '#player'
-   });
+<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
+  <div id="player"></div>
+<div id="player-wrapper"></div>
+  <script>
 
+var playerElement = document.getElementById("player");
+var player = new Clappr.Player({
+      mimeType: "application/x-mpegURL",
+      mediacontrol: {
+      seekbar: "#fffff",
+      buttons: "#fffff"
+      },
+ height: "100%",
+ width: "100%",
+ autoPlay: true,
+  plugins: [LevelSelector],
+
+ hlsjsConfig: {
+        p2pConfig: {
+            wsSignalerAddr: 'wss://free.freesignal.net',
+
+        },
+        xhrSetup: function(xhr, url) {
+                xhr.withCredentials = false;
+        }
+
+ }
+});
+player.attachTo(playerElement);
+player.load({source: "https://sportina.app/osat-max1/tracks-v1a1/mono.m3u8", mimeType:'application/x-mpegURL'});
+player.play();
 </script>
 
-<style>
-   img[alt="www.000webhost.com"] {
-      display: none;
-   }
+<script>
+</div>
 
-</style>
-<script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+
+</body>
