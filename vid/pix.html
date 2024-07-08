@@ -1,0 +1,63 @@
+<html>
+
+<meta name="robots" content="noindex">
+
+    <script src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/clappr/dash-shaka-playback@latest/dist/dash-shaka-playback.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script><style type="text/css">.level_selector[data-level-selector]{float:right;position:relative;height:100%}.level_selector[data-level-selector] button{background-color:transparent;color:#fff;font-family:Roboto,Open Sans,Arial,sans-serif;-webkit-font-smoothing:antialiased;border:none;font-size:12px;height:100%}.level_selector[data-level-selector] button:hover{color:#c9c9c9}.level_selector[data-level-selector] button.changing{-webkit-animation:pulse .5s infinite alternate}.level_selector[data-level-selector]>ul{overflow-x:hidden;overflow-y:auto;list-style-type:none;position:absolute;bottom:100%;display:none;background-color:rgba(28,28,28,.9);white-space:nowrap}.level_selector[data-level-selector] li{font-size:12px;color:#eee}.level_selector[data-level-selector] li[data-title]{background-color:#333;padding:8px 25px}.level_selector[data-level-selector] li a{color:#eee;padding:5px 18px;display:block;text-decoration:none}.level_selector[data-level-selector] li a:hover{background-color:hsla(0,0%,100%,.1);color:#fff}.level_selector[data-level-selector] li a:hover a{color:#fff;text-decoration:none}.level_selector[data-level-selector] li.current a{color:#2ecc71}</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <style>
+        .player-poster[data-poster] {
+            background-size: cover;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+<body>
+    <div id="player"></div>
+<script type="text/javascript">
+    const urlParams = new URLSearchParams(window.location.search);
+    const getID = urlParams.get('id');
+    
+    $.getJSON('https://anceprov.best/json/1.json', function(data) {
+//    $.getJSON('https://api.codetabs.com/v1/proxy/?quest=https://futbol-libre.pe/vix/canal5.json', function(data) {
+//    $.getJSON('https://corsproxy.io/?url=https://futbol-libre.pe/vix/vix.json', function(data) {
+//    $.getJSON('https://corsproxy.io/?url=https://anceprov.best/json/1.json', function(data) {
+        const $img = data.img;
+        const $file = data.embed_url;
+        const $lic = data.license_url;
+        const $proxy = data.proxy;
+
+        const player = new Clappr.Player({
+            source: $file,
+            poster: $img,
+            mimeType: 'application/dash+xml',
+            height: '100%',
+            width: '100%',
+            plugins: [DashShakaPlayback, LevelSelector, ChromecastPlugin],
+            chromecast: {
+                appId: '9DFB77C0',
+                contentType: 'video/mp4',
+            },
+            shakaConfiguration: {
+                drm: {
+                    "servers": {"com.widevine.alpha" : $lic}
+                },
+            },
+            shakaOnBeforeLoad: function(shaka_player) {
+                shaka_player.getNetworkingEngine().registerRequestFilter((type, request) => {
+                    if (type === 1) {
+                        request.uris = request.uris.map((uri) => $proxy + uri);
+                    }
+                });
+            },
+            parentId: '#player'
+        });
+    });
+ 
+</script>
+</body></html>
