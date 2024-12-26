@@ -1,0 +1,133 @@
+
+<html lang="es">
+    <style type="text/css">
+
+        body { margin: 0px; }
+        .ViostreamIframe { overflow: hidden; padding-top: 56.25%; position: relative; }
+        .ViostreamIframe iframe { border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+      
+      
+      
+      
+      #text {
+         position: relative;
+         border: 0;
+         left: 0;
+         width: 100%;
+         color: #fff;
+         bottom: 70px;
+         text-align: center;
+         font-family: Tahoma, Geneva, sans-serif;
+         font-size: 12px;
+         z-index: 9999;
+         overflow: hidden;
+         white-space: nowrap;
+         background-color: rgba(51, 51, 51, 0.4);
+         /* Semi-transparent background color */
+         padding: 0.3vw 0;
+         /* Padding around the text */
+      }
+
+      .scrolling-text {
+    display: inline-block;
+    padding-left: 280px;
+    animation: scroll 17s linear infinite;
+}
+
+      @keyframes scroll {
+         0% {
+            transform: translateX(100%);
+         }
+
+         100% {
+            transform: translateX(-100%);
+         }
+      }
+
+
+
+      #logo {
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    z-index: 10000;
+}
+
+      #logo img {
+         width: 150px;
+         /* Adjust the size as needed */
+      }
+    </style>
+       
+<head>
+
+
+</head>
+  
+  <body>
+<meta content="no-referrer" name="referrer"></meta>
+<meta content="noindex" name="robots"></meta>
+
+<style type="text/css">.jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-playlist-btn {display: none;}</style>
+<script src="//ssl.p.jwpcdn.com/player/v/8.26.0/jwplayer.js">
+</script>
+<script>
+    jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+  
+  
+  
+   <div id="logo">
+      <a href="https://t.me/fifaxlive">
+         <img alt="Logo" src="https://blogger.googleusercontent.com/img/a/AVvXsEjWsnFNuElP61KE4z_HBiX4je92Q23_1nqQBBCBX0986JCn3MexBqBDkO7BebpWDBE_B-O3ELIHdtXPZZUv-uDkQwiQ_0Dj4vicEl_c3Blw0oSyFJ37IMxH6-gG0QRVpMuDVRe7WB5JNAkkxrHSRjLPzXsQOQzsDVypX52WeAC48h3HcmSojsvAw1K8u-jX" />
+      </a>
+   </div>
+   
+   
+  
+  
+  
+  
+  
+<div id="player"></div>
+    
+    
+    
+    
+    <div id="text">
+      <div class="scrolling-text">For Cricket and Football Update JOIN our Telegram Channel t.me/fifaxlive</div>
+   </div>
+    
+    
+<script>
+          function getParameterByName(name) {
+              name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+              var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                  results = regex.exec(location.search);
+              return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+          }
+              var getURL  = getParameterByName('get');
+              var getIMG  = getParameterByName('img');
+
+
+
+      </script>
+<script>
+		var playerInstance = jwplayer("player");
+		playerInstance.setup({
+			file: atob(getURL),
+	        title : "",
+	        description: "",
+            image: atob(getIMG),
+			type: "hls",
+			width: "100%",
+			height: "100%",
+            stretching: "exactfit",
+			aspectratio: "16:9",
+			autostart: true,
+			cast:{}
+		});	
+		</script>
+    
+  </body>
+</html>
