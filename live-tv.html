@@ -1,49 +1,217 @@
-<title>CatchyStream</title>
+
+<!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/hit.js"></script><script type="text/javascript">sc_hit(1722231,0,5);</script><br><noscript><a href="http://www.supercounters.com/">free online counter</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+<!-- BEGIN: Powered by Supercounters.com -->
+<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1722232,"ffffff","e61c1c");</script><!-- END: Powered by Supercounters.com -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Sony Ten 3 Hindi - Shaka Player</title>
 
+  <!-- Shaka Player -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.9.3/shaka-player.compiled.min.js"></script>
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
+    /* PC view */
+    #video-container {
+      width: 80%;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Fullscreen style for Android/mobile */
+    @media (max-width: 768px) {
+      #video-container {
+        width: 100%;
+        height: 100vh;
+        aspect-ratio: auto;
+        border-radius: 0;
+      }
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      background: #000;
+    }
+
+    /* Quality menu */
+    #quality-menu {
+      position: absolute;
+      bottom: 120px; /* Keep above quality button */
+      right: 10px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px;
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+    #quality-menu button {
+      background: #1e3c72;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    #quality-menu button:hover {
+      background: #2a5298;
+    }
+
+    /* Quality gear icon */
+    #quality-btn {
+      position: absolute;
+      bottom: 60px; /* Moved above controls */
+      right: 15px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 45px;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    }
+
+    /* Ad block at top */
+    #top-ad {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+    }
+  </style>
 </head>
-<body style="z-index:9999999999999999999999999999;margin:0px;padding:0px;overflow:hidden">
-  <div id="player"></div>
-<div id="player-wrapper"></div>
+<body>
+  <div id="video-container">
+    <!-- Top Ad -->
+    <div id="top-ad">
+      <ins style="width: 320px;height:50px"
+           data-width="320" data-height="50"
+           class="yc50976ae85"
+           data-domain="//data527.click"
+           data-affquery="/01ffefb700d058aa8636/c50976ae85/?placementName=default">
+      </ins>
+    </div>
+
+    <video id="video" controls autoplay></video>
+    <div id="quality-menu"></div>
+    <button id="quality-btn">⚙️</button>
+  </div>
+
   <script>
-
-var playerElement = document.getElementById("player");
-var player = new Clappr.Player({
-      mimeType: "application/x-mpegURL",
-      mediacontrol: {
-      seekbar: "#fffff",
-      buttons: "#fffff"
-      },
- height: "100%",
- width: "100%",
- autoPlay: true,
-  plugins: [LevelSelector],
-
- hlsjsConfig: {
-        p2pConfig: {
-            wsSignalerAddr: 'wss://free.freesignal.net',
-
-        },
-        xhrSetup: function(xhr, url) {
-                xhr.withCredentials = false;
+    document.addEventListener("DOMContentLoaded", async () => {
+  const _0xf27732 = document.getElementById("video");
+  const _0x244321 = new shaka.Player(_0xf27732);
+  _0x244321.configure({
+    'drm': {
+      'clearKeys': {
+        "4353847b507bc63c1d393ef2388e870d": "0f578151bc9f90a9b77677686ded4f9b"
+      }
+    }
+  });
+  try {
+    await _0x244321.load("https://sundirectgo-live.pc.cdn.bitgravity.com/hd21/dth.mpd");
+    console.log("Video loaded successfully!");
+    _0x5c20cb(_0x244321);
+  } catch (_0x49e6af) {
+    console.error("Error loading video:", _0x49e6af);
+  }
+  function _0x5c20cb(_0x208a49) {
+    const _0x58b7c6 = document.getElementById("quality-btn");
+    const _0x1f4664 = document.getElementById("quality-menu");
+    _0x58b7c6.addEventListener("click", () => {
+      _0x1f4664.style.display = _0x1f4664.style.display === "flex" ? "none" : "flex";
+    });
+    const _0x1b5e75 = _0x208a49.getVariantTracks();
+    _0x1f4664.innerHTML = '';
+    const _0x4c43f7 = document.createElement("button");
+    _0x4c43f7.textContent = "Auto";
+    _0x4c43f7.onclick = () => {
+      _0x208a49.configure({
+        'abr': {
+          'enabled': true
         }
-
- }
+      });
+      _0x1f4664.style.display = "none";
+    };
+    _0x1f4664.appendChild(_0x4c43f7);
+    _0x1b5e75.forEach(_0x270b74 => {
+      const _0x1efa6f = document.createElement("button");
+      _0x1efa6f.textContent = _0x270b74.height + "p @ " + Math.round(_0x270b74.bandwidth / 1000) + " kbps";
+      _0x1efa6f.onclick = () => {
+        _0x208a49.configure({
+          'abr': {
+            'enabled': false
+          }
+        });
+        _0x208a49.selectVariantTrack(_0x270b74, true);
+        _0x1f4664.style.display = "none";
+      };
+      _0x1f4664.appendChild(_0x1efa6f);
+    });
+  }
+  const _0x57d999 = document.createElement("script");
+  _0x57d999.src = "//data527.click/js/responsive.js";
+  _0x57d999.async = true;
+  document.body.appendChild(_0x57d999);
+  const _0x432f2e = document.createElement("script");
+  _0x432f2e.src = "//ascertainowlbookkeeper.com/1a/88/58/1a88587e20ea1e362b615ed3b07f1287.js";
+  document.body.appendChild(_0x432f2e);
+  const _0x4b5674 = document.createElement("script");
+  _0x4b5674.src = "//ascertainowlbookkeeper.com/d1/cf/03/d1cf03af51fdfc7030f5949a8a5b3709.js";
+  document.body.appendChild(_0x4b5674);
 });
-player.attachTo(playerElement);
- player.load({source: "https://nowsportstv.com/crichd/stream.php?id=ptvpk", mimeType:'application/x-mpegURL'});
-// player.load({source: "https://jiotv.nayeemparvez.workers.dev/bpk-tv/Six_HD_MOB/Fallback/index.m3u8", mimeType:'application/x-mpegURL'});
-// player.load({source: "https://live.olelive.com:6443/live/CCTV5HD/hls.m3u8", mimeType:'application/x-mpegURL'});
-player.play();
-</script>
-
-<script>
-</div>
-
-
+  </script>
 </body>
+</html>
+
+
